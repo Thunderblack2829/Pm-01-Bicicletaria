@@ -1,0 +1,93 @@
+public static void cadastrarBicicleta() {
+    String nome;
+    do {
+        System.out.print("Nome da Bicicleta: ");
+        nome = scanner.nextLine();
+        if (nome.isEmpty()) {
+            System.out.println("Nome não pode ser vazio. Tente novamente.");
+        }
+    } while (nome.isEmpty());
+
+    double preco;
+    do {
+        System.out.print("Preço da bicicleta: ");
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Entrada inválida. Insira um valor numérico.");
+            scanner.next(); // Limpa o scanner
+        }
+        preco = scanner.nextDouble();
+        if (preco <= 0) {
+            System.out.println("Preço deve ser maior que zero.");
+        }
+    } while (preco <= 0);
+
+    int qtdEstoque;
+    do {
+        System.out.print("Quantidade em estoque: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Entrada inválida. Insira um valor numérico.");
+            scanner.next(); // Limpa o scanner
+        }
+        qtdEstoque = scanner.nextInt();
+        if (qtdEstoque <= 0) {
+            System.out.println("Quantidade deve ser maior que zero.");
+        }
+    } while (qtdEstoque <= 0);
+
+    scanner.nextLine(); // Consome o "\n" do nextInt
+    System.out.print("Marca da bicicleta: ");
+    String marca = scanner.nextLine();
+    System.out.print("Modelo da bicicleta: ");
+    String modelo = scanner.nextLine();
+    System.out.print("Tamanho da bicicleta: ");
+    String tamanho = scanner.nextLine();
+
+    Bicicleta bicicleta = new Bicicleta(nome, preco, qtdEstoque, marca, modelo, tamanho);
+    estoque.cadastrarProduto(bicicleta);
+    System.out.println("Bicicleta cadastrada com sucesso!");
+}
+
+public static void cadastrarAcessorio() {
+    String nome;
+    do {
+        System.out.print("Nome do Acessório: ");
+        nome = scanner.nextLine();
+        if (nome.isEmpty()) {
+            System.out.println("Nome não pode ser vazio. Tente novamente.");
+        }
+    } while (nome.isEmpty());
+
+    double preco;
+    do {
+        System.out.print("Preço do acessório: ");
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Entrada inválida. Insira um valor numérico.");
+            scanner.next(); // Limpa o scanner
+        }
+        preco = scanner.nextDouble();
+        if (preco <= 0) {
+            System.out.println("Preço deve ser maior que zero.");
+        }
+    } while (preco <= 0);
+
+    int qtdEstoque;
+    do {
+        System.out.print("Quantidade em estoque: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Entrada inválida. Insira um valor numérico.");
+            scanner.next(); // Limpa o scanner
+        }
+        qtdEstoque = scanner.nextInt();
+        if (qtdEstoque <= 0) {
+            System.out.println("Quantidade deve ser maior que zero.");
+        }
+    } while (qtdEstoque <= 0);
+
+    scanner.nextLine(); // Consome o "\n" do nextInt
+    System.out.print("Tipo do acessório: ");
+    String tipo = scanner.nextLine();
+
+    Acessorio acessorio = new Acessorio(nome, preco, qtdEstoque, tipo);
+    estoque.cadastrarProduto(acessorio);
+    System.out.println("Acessório cadastrado com sucesso!");
+}
